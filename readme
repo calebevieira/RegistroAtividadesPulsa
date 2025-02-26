@@ -1,72 +1,72 @@
-# 📝 RegistroAtividades
+#  RegistroAtividades
 
 O **RegistroAtividades** é um projeto para registrar e gerenciar atividades, utilizando **Python** e bibliotecas como **pandas**, **openpyxl** e **tkcalendar** para manipulação de dados e interface gráfica.
 
 ---
 
-## 📦 Dependências
+## 📚 Dependências
 
 Certifique-se de ter o **Python** instalado e atualizado. Para instalar as dependências, execute os seguintes comandos:
 
 ```sh
-python.exe -m pip install --upgrade pip
+python -m pip install --upgrade pip
 pip install pandas openpyxl tkcalendar
+```
 
-🚀 Como Usar
-Clone este repositório:
+---
 
-sh
-Copiar
-Editar
-git clone https://github.com/seu-usuario/RegistroAtividades.git
-Acesse a pasta do projeto:
+## 🚀 Como Usar
 
-sh
-Copiar
-Editar
-cd RegistroAtividades
-Execute o script principal:
+1. Clone este repositório:
 
-sh
-Copiar
-Editar
-python main.py
-🤝 Contribuição
+   ```sh
+   git clone https://github.com/seu-usuario/RegistroAtividades.git
+   ```
+
+2. Acesse a pasta do projeto:
+
+   ```sh
+   cd RegistroAtividades
+   ```
+
+3. Execute o script principal:
+
+   ```sh
+   python main.py
+   ```
+
+---
+
+## 🤝 Contribuição
+
 Se deseja contribuir com melhorias, siga estas etapas:
 
-Faça um fork do repositório.
+1. Faça um fork do repositório.
+2. Crie um branch para sua funcionalidade:
 
-Crie um branch para sua funcionalidade:
+   ```sh
+   git checkout -b minha-nova-feature
+   ```
 
-sh
-Copiar
-Editar
-git checkout -b minha-nova-feature
-Faça suas alterações e commite:
+3. Faça suas alterações e commite:
 
-sh
-Copiar
-Editar
-git commit -m "Adicionando nova feature"
-Envie para o repositório remoto:
+   ```sh
+   git commit -m "Adicionando nova feature"
+   ```
 
-sh
-Copiar
-Editar
-git push origin minha-nova-feature
-Abra um Pull Request para análise.
+4. Envie para o repositório remoto:
 
-📝 Licença
-Este projeto está sob a licença MIT.
+   ```sh
+   git push origin minha-nova-feature
+   ```
 
-css
-Copiar
-Editar
+5. Abra um **Pull Request** para análise.
 
-Com esses emojis e separações claras, o `README` fica mais atraente e fácil de ler, facilitando a navegação e compreensão.
+---
 
+## 📝 Licença
 
+Este projeto está sob a licença **MIT**.
 
-
-
+---
 
