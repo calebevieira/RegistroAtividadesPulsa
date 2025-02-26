@@ -69,4 +69,3 @@ Se deseja contribuir com melhorias, siga estas etapas:
 Este projeto está sob a licença **MIT**.
 
 ---
-
