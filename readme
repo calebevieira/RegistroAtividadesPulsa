@@ -1,60 +1,46 @@
 # RegistroAtividades
-O RegistroAtividades é um projeto desenvolvido para registrar e gerenciar atividades, utilizando Python e bibliotecas como pandas, openpyxl e tkcalendar para manipulação de dados e interface gráfica.
 
-🚀 Tecnologias Utilizadas
-Este projeto foi desenvolvido com as seguintes tecnologias:
+O **RegistroAtividades** é um projeto para registrar e gerenciar atividades, utilizando **Python** e bibliotecas como **pandas**, **openpyxl** e **tkcalendar** para manipulação de dados e interface gráfica.
 
-Python: Linguagem principal do projeto.
-pandas: Para manipulação e análise de dados.
-openpyxl: Para leitura e escrita de arquivos Excel.
-tkcalendar: Para criação de interfaces gráficas com calendário.
-📋 Pré-requisitos
-Certifique-se de ter o Python instalado e atualizado em sua máquina. Para instalar as dependências necessárias, execute os seguintes comandos:
+## Dependências
+Certifique-se de ter o **Python** instalado e atualizado. Para instalar as dependências, execute os seguintes comandos:
 
-bash
-Copiar
-Editar
-# Atualizar o pip
+```sh
 python.exe -m pip install --upgrade pip
-
-# Instalar as dependências
 pip install pandas openpyxl tkcalendar
-🛠️ Como Usar
-Clone o repositório:
-bash
-Copiar
-Editar
-git clone https://github.com/seu-usuario/RegistroAtividades.git
-Acesse a pasta do projeto:
-bash
-Copiar
-Editar
-cd RegistroAtividades
-Execute o script principal:
-bash
-Copiar
-Editar
-python main.py
-💡 Contribuição
-Quer contribuir? Siga os passos abaixo:
+```
 
-Faça um fork deste repositório.
-Crie um branch para sua funcionalidade:
-bash
-Copiar
-Editar
-git checkout -b minha-nova-feature
-Faça suas alterações e commite:
-bash
-Copiar
-Editar
-git commit -m "Adicionando nova feature"
-Envie suas alterações para o repositório remoto:
-bash
-Copiar
-Editar
-git push origin minha-nova-feature
-Abra um Pull Request para análise e integração.
-📜 Licença
-Este projeto está licenciado sob a licença MIT.
+## Como Usar
+1. Clone este repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/RegistroAtividades.git
+   ```
+2. Acesse a pasta do projeto:
+   ```sh
+   cd RegistroAtividades
+   ```
+3. Execute o script principal:
+   ```sh
+   python main.py
+   ```
+
+## Contribuição
+Se deseja contribuir com melhorias, siga estas etapas:
+1. Faça um **fork** do repositório
+2. Crie um **branch** para sua funcionalidade:
+   ```sh
+   git checkout -b minha-nova-feature
+   ```
+3. Faça suas alterações e **commite**:
+   ```sh
+   git commit -m "Adicionando nova feature"
+   ```
+4. Envie para o repositório remoto:
+   ```sh
+   git push origin minha-nova-feature
+   ```
+5. Abra um **Pull Request** para análise.
+
+## Licença
+Este projeto está sob a licença **MIT**.
 
