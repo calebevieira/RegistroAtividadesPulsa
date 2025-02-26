@@ -11,24 +11,20 @@ class RegistroAtividadesApp:
         self.root.title("Registro de Atividades")
         self.root.geometry("550x750")
         
-        # Criando um frame para organizar os campos de entrada
         frame_campos = tk.Frame(root)
         frame_campos.pack(padx=10, pady=10, fill="both", expand=True)
         
-        # Nome do Analista (Combobox)
         tk.Label(frame_campos, text="Nome do Analista:").grid(row=0, column=0, sticky="w", padx=5, pady=5)
         analistas = ["Wilvan Santos", "Thais Ferreira", "Samuel Amaral", "Nathalia Ponciano", "Luiz Princival", "Kelvin Betto", "Jonatan Atilio", "Gabriel Alves", "Filipe Faria", "Calebe Vieira", "Bruno Altmann"]
         self.nome_analista = ttk.Combobox(frame_campos, values=analistas, state="readonly", width=25)
         self.nome_analista.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
         
-        # Data com calendário
         tk.Label(frame_campos, text="Data:").grid(row=1, column=0, sticky="w", padx=5, pady=5)
         self.data = tk.Entry(frame_campos)
         self.data.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.cal_button = tk.Button(frame_campos, text="Selecionar Data", command=self.abrir_calendario)
         self.cal_button.grid(row=1, column=2, padx=5, pady=5)
         
-        # Criando um frame para os checkboxes de sistema
         frame_sistemas = tk.LabelFrame(root, text="Sistemas")
         frame_sistemas.pack(padx=10, pady=5, fill="both")
         
@@ -40,7 +36,6 @@ class RegistroAtividadesApp:
             chk.grid(row=i // 2, column=i % 2, sticky="w", padx=5, pady=2)
             self.sistemas[sistema] = var
         
-        # Primeiro Atendimento (Checkbox Sim/Não)
         frame_primeiro = tk.LabelFrame(root, text="Primeiro Atendimento")
         frame_primeiro.pack(padx=10, pady=5, fill="both")
         self.primeiro_atendimento = tk.StringVar()
@@ -48,7 +43,6 @@ class RegistroAtividadesApp:
         tk.Radiobutton(frame_primeiro, text="Sim", variable=self.primeiro_atendimento, value="Sim").pack(anchor="w")
         tk.Radiobutton(frame_primeiro, text="Não", variable=self.primeiro_atendimento, value="Não").pack(anchor="w")
         
-        # Status (Checkboxes)
         frame_status = tk.LabelFrame(root, text="Status")
         frame_status.pack(padx=10, pady=5, fill="both")
         self.status = {}
@@ -59,7 +53,6 @@ class RegistroAtividadesApp:
             chk.pack(anchor="w")
             self.status[status] = var
         
-        # Criando um frame para os campos adicionais
         frame_campos_extra = tk.Frame(root)
         frame_campos_extra.pack(padx=10, pady=5, fill="both")
         
@@ -72,7 +65,6 @@ class RegistroAtividadesApp:
             if "Hora" in campo:
                 self.entries[campo].bind("<KeyRelease>", self.formatar_hora)
         
-        # Botão de salvar
         btn_salvar = tk.Button(root, text="Salvar Registro", command=self.salvar_registro)
         btn_salvar.pack(pady=10, ipadx=20, ipady=5)
     
@@ -99,8 +91,33 @@ class RegistroAtividadesApp:
         widget.insert(0, texto)
     
     def salvar_registro(self):
-        # Implementação de salvamento
-        pass
+        arquivo_excel = "registros_atividades.xlsx"
+        
+        dados = {
+            "Nome do Analista": self.nome_analista.get(),
+            "Data": self.data.get(),
+            "Número de chamado": self.entries["Número de chamado"].get(),
+            "Projeto": self.entries["Projeto"].get(),
+            "Atividade realizada": self.entries["Atividade realizada"].get(),
+            "Complemento de informação": self.entries["Complemento de informação"].get(),
+            "Hora de início": self.entries["Hora de início"].get(),
+            "Hora de término": self.entries["Hora de término"].get(),
+            "Primeiro Atendimento": self.primeiro_atendimento.get(),
+            "Status": ", ".join([s for s, var in self.status.items() if var.get()]),
+            "Sistemas": ", ".join([s for s, var in self.sistemas.items() if var.get()])
+        }
+        
+        df_novo = pd.DataFrame([dados])
+        
+        if os.path.exists(arquivo_excel):
+            df_existente = pd.read_excel(arquivo_excel)
+            df_final = pd.concat([df_existente, df_novo], ignore_index=True)
+        else:
+            df_final = df_novo
+        
+        df_final.to_excel(arquivo_excel, index=False)
+        
+        messagebox.showinfo("Sucesso", "Registro salvo com sucesso!")
 
 if __name__ == "__main__":
     root = tk.Tk()
