@@ -1,0 +1,60 @@
+# RegistroAtividades
+O RegistroAtividades é um projeto desenvolvido para registrar e gerenciar atividades, utilizando Python e bibliotecas como pandas, openpyxl e tkcalendar para manipulação de dados e interface gráfica.
+
+🚀 Tecnologias Utilizadas
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+Python: Linguagem principal do projeto.
+pandas: Para manipulação e análise de dados.
+openpyxl: Para leitura e escrita de arquivos Excel.
+tkcalendar: Para criação de interfaces gráficas com calendário.
+📋 Pré-requisitos
+Certifique-se de ter o Python instalado e atualizado em sua máquina. Para instalar as dependências necessárias, execute os seguintes comandos:
+
+bash
+Copiar
+Editar
+# Atualizar o pip
+python.exe -m pip install --upgrade pip
+
+# Instalar as dependências
+pip install pandas openpyxl tkcalendar
+🛠️ Como Usar
+Clone o repositório:
+bash
+Copiar
+Editar
+git clone https://github.com/seu-usuario/RegistroAtividades.git
+Acesse a pasta do projeto:
+bash
+Copiar
+Editar
+cd RegistroAtividades
+Execute o script principal:
+bash
+Copiar
+Editar
+python main.py
+💡 Contribuição
+Quer contribuir? Siga os passos abaixo:
+
+Faça um fork deste repositório.
+Crie um branch para sua funcionalidade:
+bash
+Copiar
+Editar
+git checkout -b minha-nova-feature
+Faça suas alterações e commite:
+bash
+Copiar
+Editar
+git commit -m "Adicionando nova feature"
+Envie suas alterações para o repositório remoto:
+bash
+Copiar
+Editar
+git push origin minha-nova-feature
+Abra um Pull Request para análise e integração.
+📜 Licença
+Este projeto está licenciado sob a licença MIT.
+
