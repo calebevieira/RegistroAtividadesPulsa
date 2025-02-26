@@ -9,19 +9,18 @@ class RegistroAtividadesApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Registro de Atividades")
-        self.root.geometry("500x600")
+        self.root.geometry("500x700")
         
         self.campos = [
-            "Número de chamado", "Sistema", "Primeiro atendimento", "Projeto",
-            "Atividade realizada", "Complemento de informação", "Hora de início",
-            "Hora de término", "Status"
+            "Número de chamado", "Projeto", "Atividade realizada", "Complemento de informação", "Hora de início", "Hora de término"
         ]
         
         self.entries = {}
-        
-        # Nome do Analista
+
+        # Nome do Analista (Combobox)
         tk.Label(root, text="Nome do Analista:").pack()
-        self.nome_analista = tk.Entry(root)
+        analistas = ["Wilvan Santos", "Thais Ferreira", "Samuel Amaral", "Nathalia Ponciano", "Luiz Princival", "Kelvin Betto", "Jonatan Atilio", "Gabriel Alves", "Filipe Faria", "Calebe Vieira", "Bruno Altmann"]
+        self.nome_analista = ttk.Combobox(root, values=analistas, state="readonly")
         self.nome_analista.pack()
         
         # Data com calendário
@@ -30,7 +29,34 @@ class RegistroAtividadesApp:
         self.data.pack()
         self.cal_button = tk.Button(root, text="Selecionar Data", command=self.abrir_calendario)
         self.cal_button.pack()
+
+        # Sistema (Checkboxes)
+        tk.Label(root, text="Sistema:").pack()
+        self.sistemas = {}
+        sistemas_lista = ["Goffice", "Hemote", "Sbs", "Monetários", "Whatsaap", "Teams", "Outlook"]
+        for sistema in sistemas_lista:
+            var = tk.BooleanVar()
+            chk = tk.Checkbutton(root, text=sistema, variable=var)
+            chk.pack(anchor="w")
+            self.sistemas[sistema] = var
         
+        # Primeiro Atendimento (Checkbox Sim/Não)
+        tk.Label(root, text="Primeiro Atendimento:").pack()
+        self.primeiro_atendimento = tk.StringVar()
+        self.primeiro_atendimento.set("Não")
+        tk.Radiobutton(root, text="Sim", variable=self.primeiro_atendimento, value="Sim").pack(anchor="w")
+        tk.Radiobutton(root, text="Não", variable=self.primeiro_atendimento, value="Não").pack(anchor="w")
+        
+        # Status (Checkboxes)
+        tk.Label(root, text="Status:").pack()
+        self.status = {}
+        status_lista = ["Concluído", "Atendendo", "Em Andamento"]
+        for status in status_lista:
+            var = tk.BooleanVar()
+            chk = tk.Checkbutton(root, text=status, variable=var)
+            chk.pack(anchor="w")
+            self.status[status] = var
+
         # Campos de entrada
         for campo in self.campos:
             tk.Label(root, text=campo + ":").pack()
@@ -66,6 +92,10 @@ class RegistroAtividadesApp:
     
     def salvar_registro(self):
         dados = {"Nome do Analista": self.nome_analista.get(), "Data": self.data.get()}
+        dados["Sistema"] = ", ".join([sistema for sistema, var in self.sistemas.items() if var.get()])
+        dados["Primeiro Atendimento"] = self.primeiro_atendimento.get()
+        dados["Status"] = ", ".join([status for status, var in self.status.items() if var.get()])
+        
         for campo, entry in self.entries.items():
             dados[campo] = entry.get()
         
@@ -85,10 +115,14 @@ class RegistroAtividadesApp:
     def limpar_campos(self):
         for entry in self.entries.values():
             entry.delete(0, tk.END)
-        self.nome_analista.delete(0, tk.END)
-        self.nome_analista.insert(0, "")
+        self.nome_analista.set("")
         self.data.delete(0, tk.END)
         self.data.insert(0, datetime.today().strftime('%d/%m/%Y'))
+        for var in self.sistemas.values():
+            var.set(False)
+        self.primeiro_atendimento.set("Não")
+        for var in self.status.values():
+            var.set(False)
 
 if __name__ == "__main__":
     root = tk.Tk()
